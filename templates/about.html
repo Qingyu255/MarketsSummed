@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico')}}">
+</head>
+<body>
+<div id="wrapper">
+    {% include "header.html" %}
+    <div id="content-wrapper" class="d-flex flex-column">
+    <!-- Page Header-->
+        <header class="masthead" style="padding-top: 60px;">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>About This Website</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>This website was created as a personal project to assist users in getting a quick overview of the US stock market conditions. This is done by helping to identify short term bullish or bearish divergences in the stock market indicators through various means, such as the use of contrarian indicators.</p>
+                        <p>This website's frontend is constructed using HTML/CSS and bootstrap whilst the backend is built on Python (Object-Oriented Programming) and the Flask framework. The charts were created using the Plotly library and the chart studio API.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer style="background-color:transparent;">
+            {% include "footer.html" %}
+        </footer>
+    </div>
+</div>
+</body>
+</html>

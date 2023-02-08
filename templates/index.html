@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico')}}">
+</head>
+<body>
+    <div id="wrapper">
+        {% include "header.html" %}
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800" style="padding-top: 25px;">Markets</h1>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card shadow mb-4" style="height:30rem;">
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">S and P 500</h6>
+                                </div>
+                                <div class="card-body">
+<!--                                    <iframe width="490" height="420" frameborder="0" src={{chart_array_indexes[0]}}></iframe>-->
+                                    <iframe width="100%" height="80%" src={{chart_array_indexes[0]}} frameborder="0" style="position:absolute; top:70px; left: 0"></iframe>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card shadow mb-4" style="height:30rem;">
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Nasdaq</h6>
+                                </div>
+                                <div class="card-body">
+                                    <iframe width="100%" height="80%" src={{chart_array_indexes[1]}} frameborder="0" style="position:absolute; top:70px; left: 0"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card shadow mb-4" style="height:30rem;">
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Dow Jones</h6>
+                                </div>
+                                <div class="card-body">
+                                    <iframe width="100%" height="80%" src={{chart_array_indexes[2]}} frameborder="0" style="position:absolute; top:70px; left: 0"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Market performance</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <h5 style="color: black;">{{summary_report}}</h5>
+                                </div>
+                                <!-- Card Body -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content Row -->
+                    <div class="row">
+                        <!-- Content Column -->
+                        <div class="col-lg-8">
+                            <!-- Project Card Example -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Market Volatility</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+                                        <ol class="carousel-indicators">
+                                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                        </ol>
+                                        <div class="carousel-inner" style="text-align: center;">
+                                          <div class="carousel-item active">
+                                            <iframe width="800" height="550" frameborder="0" src={{chart_array_volatility[0]}}></iframe>
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5 style="color: black;">The VIX index tracks the volatility of the S and P 500.</h5>
+                                            </div>
+                                        </div>
+                                          <div class="carousel-item">
+                                            <iframe width="800" height="550" frameborder="0" src={{chart_array_volatility[1]}}></iframe>
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5 style="color: black;">The VXN index tracks the volatility of the Nasdaq.</h5>
+                                            </div>
+                                        </div>
+
+                                        </div>
+                                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                          <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: gray; border-radius: 35%;"></span>
+                                          <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                          <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: gray; border-radius: 35%;"></span>
+                                          <span class="sr-only">Next</span>
+                                        </a>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <!-- Illustrations -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">S and P 500 and Nasdaq Volatility</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <h6 style="color: black;">{{VIX_VXN_report}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- End of Main Content -->
+            {% include "footer.html" %}
+        </div>
+    <!-- End of Content Wrapper -->
+    </div>
+</body>
+
+</html>
+    <!-- End of Page Wrapper -->
+<!--    <div id="content-wrapper" class="d-flex flex-column">-->
+<!--        &lt;!&ndash; Main Content &ndash;&gt;-->
+<!--        <div id="content">-->
+<!--            &lt;!&ndash; Begin Page Content &ndash;&gt;-->
+<!--            <section class="container-fluid">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-lg-6 bullbear">-->
+<!--                        <h1>Bull or Bear?</h1>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-6">-->
+<!--                        <h3>-.</h3>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    {% for chart in HYG_charts %}-->
+<!--                    <div class="col-lg-6">-->
+<!--                        <iframe width="800" height="700" frameborder="0" src={{chart}}></iframe>-->
+<!--                    </div>-->
+<!--                    {% endfor %}-->
+<!--                </div>-->
+<!--                <div class="row summary">-->
+<!--                    <h3>{{SPY_summary}}</h3>-->
+<!--                    <h3>{{HYG_summary}}</h3>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    {% for chart in VIX_charts %}-->
+<!--                    <div class="col-lg-6">-->
+<!--                        <iframe width="800" height="700" frameborder="0" src={{chart}}></iframe>-->
+<!--                    </div>-->
+<!--                    {% endfor %}-->
+<!--                </div>-->
+<!--                <div class="row summary">-->
+<!--                    <h3>{{VIX_summary}}</h3>-->
+<!--                </div>-->
+<!--            </section>-->
+<!--        </div>-->
+<!--    </div>-->
